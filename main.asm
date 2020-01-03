@@ -121,7 +121,7 @@ mov rax, [rbx + 0x60] ; EFI_BOOT_SERVICES* pBootServices = pEfiSystemTable->pBoo
 lea rcx, [rel gEfiConsoleControlProtocolGuid - 0x200 + 0x1000]
 xor edx, edx
 lea r8, [rsp + 0x28] ; &pConsoleControlInterface
-call [rax + 0x140]; pBootServices->fpLocateProtocol(&gEfiConsoleControlProtocolGuid, NULL, &pConsoleControlInterface); ; Non-standard protocol, which must be located first.
+call [rax + 0x140]; pBootServices->fpLocateProtocol(&gEfiConsoleControlProtocolGuid, NULL, &pConsoleControlInterface); ; Non-standard protocol, which first must be located before use.
 test rax, rax
 jne fail
 xor edx, edx
