@@ -132,7 +132,7 @@ jne fail
 mov rcx, [rbx + 0x40] ; SIMPLE_TEXT_OUTPUT_INTERFACE* con_out = pEfiSystemTable->pConOut;
 lea rdx, [rel myvar - 0x200 + 0x1000] ; myvar - raw_code_size + (virtual_data_address - virtual_code_address)
 call [rcx + 8] ; Only now printed text will be visible!
-jmp infloop ; "Prevent" deleting the text so it can be read by humans...when done reset platform by pressing Cmd+Option+Shift+Power.
+jmp infloop ; "Prevent" deleting the text so it can be read by humans...when done reset platform by pressing Ctrl+Option+Shift+Power.
 
 fail:
 xor ecx, ecx
